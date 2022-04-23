@@ -19,5 +19,13 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+  if(Serial.available()){ 
+    //通常會跟if判斷是搭配使用，他的功能是檢查Arduino有沒有收到從序列埠監控視窗傳送進來的訊息
+    delay(100);
+    lcd.clear();
+    lcd.setCursor(0,0);
+    while(Serial.available()>0){
+      lcd.write(Serial.read());
+    }
+  }
 }
